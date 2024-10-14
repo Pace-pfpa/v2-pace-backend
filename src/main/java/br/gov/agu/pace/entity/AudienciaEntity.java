@@ -1,8 +1,9 @@
 package br.gov.agu.pace.entity;
 
+import br.gov.agu.pace.enums.StatusAudiencia;
+import br.gov.agu.pace.enums.TipoAudiencia;
 import br.gov.agu.pace.enums.TipoTurno;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,9 +19,9 @@ import java.time.LocalDate;
 @AllArgsConstructor
 public class AudienciaEntity {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    private String numeroProcesso;
 
     private LocalDate data;
 
@@ -30,6 +31,17 @@ public class AudienciaEntity {
 
     private String sala;
 
+    private String numeroProcesso;
+
     private String nomeParte;
 
+    @ManyToOne
+    @JoinColumn(name = "vara_id", nullable = false)
+    private VaraEntity vara;
+
+    private String classe;
+
+    private StatusAudiencia status;
+
+    private TipoAudiencia tipo;
 }

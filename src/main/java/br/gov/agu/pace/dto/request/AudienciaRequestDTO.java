@@ -1,5 +1,7 @@
 package br.gov.agu.pace.dto.request;
 
+import br.gov.agu.pace.enums.StatusAudiencia;
+import br.gov.agu.pace.enums.TipoAudiencia;
 import br.gov.agu.pace.enums.TipoTurno;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -14,8 +16,6 @@ import java.time.LocalDate;
 @AllArgsConstructor
 public class AudienciaRequestDTO {
 
-    private String numeroProcesso;
-
     private LocalDate data;
 
     private String hora;
@@ -24,5 +24,15 @@ public class AudienciaRequestDTO {
 
     private String sala;
 
+    private String numeroProcesso;
+
     private String nomeParte;
+
+    private String classe;
+
+    private StatusAudiencia status;
+
+    private TipoAudiencia tipo;
+
+
 }
