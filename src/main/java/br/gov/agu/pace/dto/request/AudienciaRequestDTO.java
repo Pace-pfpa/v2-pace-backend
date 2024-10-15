@@ -33,6 +33,4 @@ public class AudienciaRequestDTO {
     private StatusAudiencia status;
 
     private TipoAudiencia tipo;
-
-
 }

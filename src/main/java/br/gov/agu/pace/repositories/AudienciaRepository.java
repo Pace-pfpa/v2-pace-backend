@@ -9,8 +9,8 @@ import java.util.Optional;
 
 @Repository
 public interface AudienciaRepository extends JpaRepository<AudienciaEntity, Long> {
+
     Optional<AudienciaEntity> findByNumeroOAB(String numeroOAB);
 
     boolean existsByNumeroProcesso(String numeroProcesso);
-
 }

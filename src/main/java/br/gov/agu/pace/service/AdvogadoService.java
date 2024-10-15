@@ -41,7 +41,6 @@ public class AdvogadoService {
     public String atualizarAdvogado(Long id, AdvogadoRequestDTO request) {
 
         AdvogadoEntity advogadoQueSeraAtualizado = advogadoRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Advogado não encontrado com id: " + id));
-
         AdvogadoEntity advogadoAtualizado = AdvogadoEntity.builder()
                 .id(advogadoQueSeraAtualizado.getId())
                 .nome(request.getNome() != null ? request.getNome() : advogadoQueSeraAtualizado.getNome())

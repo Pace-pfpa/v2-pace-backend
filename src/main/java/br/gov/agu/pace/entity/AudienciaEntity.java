@@ -4,10 +4,7 @@ import br.gov.agu.pace.enums.StatusAudiencia;
 import br.gov.agu.pace.enums.TipoAudiencia;
 import br.gov.agu.pace.enums.TipoTurno;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDate;
 
@@ -17,6 +14,7 @@ import java.time.LocalDate;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class AudienciaEntity {
 
     @Id
