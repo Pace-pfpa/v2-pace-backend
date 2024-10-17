@@ -10,7 +10,7 @@ import java.util.Optional;
 @Repository
 public interface AudienciaRepository extends JpaRepository<AudienciaEntity, Long> {
 
-    Optional<AudienciaEntity> findByNumeroOAB(String numeroOAB);
+    Optional<AudienciaEntity> findByNumeroProcesso(String numero_processo);
 
-    boolean existsByNumeroProcesso(String numeroProcesso);
+    boolean existsByNumeroProcesso(String numero_processo);
 }
