@@ -21,8 +21,8 @@ public class AudienciaService {
     private final AudienciaRepository audienciaRepository;
 
     public AudienciaResponseDTO salvarAudiencia(AudienciaRequestDTO request){
-        if (audienciaRepository.existsByNumeroProcesso(request.getNumero_processo())){
-            throw new ResourceAlreadyExistException("Audiencia já cadastrada com o numero do processo: " + request.getNumero_processo());
+        if (audienciaRepository.existsByNumeroProcesso(request.getNumeroProcesso())){
+            throw new ResourceAlreadyExistException("Audiencia já cadastrada com o numero do processo: " + request.getNumeroProcesso());
         }
 
         AudienciaEntity entity = audienciaMapper.toEntity(request);
@@ -30,7 +30,7 @@ public class AudienciaService {
     }
 
     public AudienciaResponseDTO buscarAudienciaPorId(Long id){
-        AudienciaEntity entity = audienciaRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Advogado não encontrado com id: " + id));
+        AudienciaEntity entity = audienciaRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Audeincia não encontrada com id: " + id));
         return audienciaMapper.toResponseDTO(entity);
     }
 
@@ -40,13 +40,13 @@ public class AudienciaService {
     }
 
     public String atualizarAudiencia(Long id, AudienciaRequestDTO request){
-        AudienciaEntity audienciaQueSeraAtualizada = audienciaRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Advogado não encontrado com id: " + id));
+        AudienciaEntity audienciaQueSeraAtualizada = audienciaRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Audiencia não encontrada com id: " + id));
         AudienciaEntity audienciaAtualizada = AudienciaEntity.builder()
                 .id(audienciaQueSeraAtualizada.getId())
                 .hora(request.getHora() != null ? request.getHora() : audienciaQueSeraAtualizada.getHora())
                 .status(request.getStatus() != null ? request.getStatus() : audienciaQueSeraAtualizada.getStatus())
-                .numero_processo(request.getNumero_processo() != null ? request.getNumero_processo() : audienciaQueSeraAtualizada.getNumero_processo())
-                .nome_parte(request.getNome_parte() != null ? request.getNome_parte() : audienciaQueSeraAtualizada.getNome_parte())
+                .numeroProcesso(request.getNumeroProcesso() != null ? request.getNumeroProcesso() : audienciaQueSeraAtualizada.getNumeroProcesso())
+                .nomeParte(request.getNomeParte() != null ? request.getNomeParte() : audienciaQueSeraAtualizada.getNumeroProcesso())
                 .classe(request.getClasse() != null ? request.getClasse() : audienciaQueSeraAtualizada.getClasse())
                 .build();
 

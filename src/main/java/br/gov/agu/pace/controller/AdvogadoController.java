@@ -4,6 +4,7 @@ import br.gov.agu.pace.dto.request.AdvogadoRequestDTO;
 import br.gov.agu.pace.dto.response.AdvogadoResponseDTO;
 import br.gov.agu.pace.service.AdvogadoService;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

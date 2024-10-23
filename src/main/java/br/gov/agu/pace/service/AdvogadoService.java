@@ -7,12 +7,13 @@ import br.gov.agu.pace.exceptions.ResourceNotFoundException;
 import br.gov.agu.pace.mapper.AdvogadoMapper;
 import br.gov.agu.pace.repositories.AdvogadoRepository;
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class AdvogadoService {
 
     private final AdvogadoMapper advogadoMapper;
@@ -61,7 +62,7 @@ public class AdvogadoService {
     }
 
     public List<AdvogadoResponseDTO> buscarPorNome(String nome) {
-        List<AdvogadoEntity> listaAdvogados = advogadoRepository.findAdvogadoEntitiesByNomeIsNear(nome);
+        List<AdvogadoEntity> listaAdvogados = advogadoRepository.findAdvogadoEntitiesByNomeContaining(nome);
         return listaAdvogados.stream().map(advogadoMapper::toResponseDTO).toList();
     }
 }

@@ -23,7 +23,7 @@ public class AudienciaController {
         return ResponseEntity.created(URI.create("/audiencia" + response.getId())).body(response);
     }
 
-    @GetMapping("{/id}")
+    @GetMapping("/{id}")
     public ResponseEntity<AudienciaResponseDTO> buscarAudienciaPorId(@PathVariable Long id) {
         AudienciaResponseDTO response = audienciaService.buscarAudienciaPorId(id);
         return ResponseEntity.ok(response);
@@ -41,15 +41,15 @@ public class AudienciaController {
         return ResponseEntity.ok(response);
     }
 
-    @DeleteMapping("{/id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletarAudiencia(@PathVariable Long id){
         audienciaService.deletarAudiencia(id);
         return ResponseEntity.noContent().build();
     }
 
     @GetMapping("/buscarNumeroProcesso")
-    public ResponseEntity<AudienciaResponseDTO> buscarPorNumeroProcesso(@RequestParam String numero_processo){
-        AudienciaResponseDTO audiencia = audienciaService.buscarPorNumeroProcesso(numero_processo);
+    public ResponseEntity<AudienciaResponseDTO> buscarPorNumeroProcesso(@RequestParam String numeroProcesso){
+        AudienciaResponseDTO audiencia = audienciaService.buscarPorNumeroProcesso(numeroProcesso);
         return ResponseEntity.ok(audiencia);
     }
 

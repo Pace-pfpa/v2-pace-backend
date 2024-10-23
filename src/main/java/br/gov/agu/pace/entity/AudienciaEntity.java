@@ -23,9 +23,9 @@ public class AudienciaEntity {
 
     //id_pauta
 
-    private String numero_processo;
+    private String numeroProcesso;
 
-    private String nome_parte;
+    private String nomeParte;
 
     //Transferir para tabela pauta
 //    @ManyToOne

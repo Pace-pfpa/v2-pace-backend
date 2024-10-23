@@ -16,9 +16,9 @@ public class AudienciaRequestDTO {
 
     private StatusAudiencia status;
 
-    private String numero_processo;
+    private String numeroProcesso;
 
-    private String nome_parte;
+    private String nomeParte;
 
     private String classe;
 
